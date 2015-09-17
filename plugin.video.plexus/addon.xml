@@ -16,7 +16,7 @@
         <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.repository" name="Plexus Repository">
-        <info compressed="false">https://plexus.svn.codeplex.com/svn/trunk/Addon/addons.xml</info>
+        <info compressed="false">https://raw.githubusercontent.com/bazingashami/plexus_fork/master/plugin.video.plexus/addon.xml</info>
         <checksum>https://plexus.svn.codeplex.com/svn/trunk/Addon/addons.xml.md5</checksum>
         <datadir zip="true">https://plexus.svn.codeplex.com/svn/trunk/Addon/</datadir>
   </extension>
