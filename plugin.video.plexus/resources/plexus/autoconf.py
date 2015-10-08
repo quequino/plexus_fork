@@ -98,28 +98,6 @@ def check_for_updates():
 		
 				
 				
-				
-def check_for_updates2():
-	if xbmc.getCondVisibility('system.platform.linux') and not xbmc.getCondVisibility('system.platform.Android'):
-		if "arm" in os.uname()[4]:
-			if settings.getSetting('rpi2') == "true": platf = "rpi2"		
-		elif os.uname()[4] == "i386" or os.uname()[4] == "i686":
-			if settings.getSetting('openeleci386') == "true": platf = "openeleci386"
-			else: platf = "linuxi386"
-		elif os.uname()[4] == "x86_64": 
-			if settings.getSetting('openelecx86_64') == "true": platf = "openelecx64"
-			else: platf = "linux_x86_64"
-	elif xbmc.getCondVisibility('system.platform.windows'): platf = "windows"
-	elif xbmc.getCondVisibility('system.platform.Android'): platf = "android"
-	elif xbmc.getCondVisibility('System.Platform.OSX'):
-		if os.uname()[4] == "i386" or os.uname()[4] == "i686": platf = "osx32"
-		elif os.uname()[4] == "x86_64": platf = "osx64"
-	acestream_update = True
-	sopcast_update = True
-	if acestream_update and sopcast_update: settings.setSetting('last_version_check',value=versao)
-
-	return
-
 def first_conf():
 	settings.setSetting('last_version_check',value='')
 	settings.setSetting('sopcast_version',value='')
