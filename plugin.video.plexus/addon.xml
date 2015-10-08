@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.plexus"
        name="Plexus"
-       version="0.9.5"
+       version="0.9.6"
        provider-name="dilo00o">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
@@ -18,7 +18,7 @@
   <extension point="xbmc.addon.repository" name="Plexus Repository">
         <info compressed="false">https://raw.githubusercontent.com/bazingashami/plexus_fork/master/plugin.video.plexus/addon.xml</info>
         <checksum>https://raw.githubusercontent.com/bazingashami/plexus_fork/master/addon.md5</checksum>
-        <datadir zip="true">https://github.com/bazingashami/plexus_fork/raw/master/plugin.video.plexus.zip</datadir>
+        <datadir zip="true">https://raw.githubusercontent.com/bazingashami/plexus_fork/master/plugin.video.plexus.zip</datadir>
   </extension>
   <extension point="xbmc.addon.metadata">
     <summary>SopCast and AceStream for Kodi</summary>
