@@ -32,8 +32,9 @@ from plexusutils.utilities import *
 
 """ Platform dependent files downloaded during the addon configuration"""
 
-trunkfolder="https://github.com/bazingashami/plexus_fork/raw/master/ressources/"
-version_control=trunkfolder + "/versions.info"
+trunkfolder="https://github.com/bazingashami/plexus_fork/raw/master/ressources"
+#version_control=trunkfolder + "/versions.info"
+version_control = "https://github.com/tvaddonsag/plexus-dependencies/raw/master" + "/Control/versions.info"
 sopcast_linux_generico =  trunkfolder + "/sopcast_linux.tar.gz"
 openelecx86_64_sopcast = trunkfolder + "/sopcast_openelec64.tar.gz"
 openeelcx86_64_acestream = trunkfolder + "/acestream_openelec64_3051.tar.gz"
@@ -54,12 +55,16 @@ osx_x64_acestream = trunkfolder + "/AceStreamWineOSX.zip"
 acestream_windows = trunkfolder + "/acewindows-aceengine3.0.4.tar.gz"
 srvany_executable = trunkfolder + "/srvany.tar.gz"
 srvany_permissions = trunkfolder + "/sopcastp2p-permissions.txt"
-
 def check_for_updates():
 	try:
 		version_source = get_page_source(version_control)
-	except: version_source = ""
+	except Exception,e :
+		print "****************************************************"
+		print str(e)
+		print "****************************************************"
+		version_source = ""
 	if version_source:
+		print "++++++++++++++++++++++++ ok version source"
 		version_source = eval(version_source)
 		if xbmc.getCondVisibility('system.platform.linux') and not xbmc.getCondVisibility('system.platform.Android'):
 			if "arm" in os.uname()[4]:
@@ -86,29 +91,6 @@ def check_for_updates():
 		if acestream_update and sopcast_update: settings.setSetting('last_version_check',value=versao)
 		return
 		
-				
-				
-				
-def check_for_updates2():
-	if xbmc.getCondVisibility('system.platform.linux') and not xbmc.getCondVisibility('system.platform.Android'):
-		if "arm" in os.uname()[4]:
-			if settings.getSetting('rpi2') == "true": platf = "rpi2"		
-		elif os.uname()[4] == "i386" or os.uname()[4] == "i686":
-			if settings.getSetting('openeleci386') == "true": platf = "openeleci386"
-			else: platf = "linuxi386"
-		elif os.uname()[4] == "x86_64": 
-			if settings.getSetting('openelecx86_64') == "true": platf = "openelecx64"
-			else: platf = "linux_x86_64"
-	elif xbmc.getCondVisibility('system.platform.windows'): platf = "windows"
-	elif xbmc.getCondVisibility('system.platform.Android'): platf = "android"
-	elif xbmc.getCondVisibility('System.Platform.OSX'):
-		if os.uname()[4] == "i386" or os.uname()[4] == "i686": platf = "osx32"
-		elif os.uname()[4] == "x86_64": platf = "osx64"
-	acestream_update = True
-	sopcast_update = True
-	if acestream_update and sopcast_update: settings.setSetting('last_version_check',value=versao)
-
-	return
 
 def first_conf():
 	settings.setSetting('last_version_check',value='')
@@ -140,6 +122,7 @@ def first_conf():
 					opcao= xbmcgui.Dialog().yesno(translate(30000), translate(30075))
 					if opcao: 
 						settings.setSetting('openeleci386',value='true')
+			print "++++++++++++++++++++++++++ updating linux"
 			check_for_updates()
 			
 	elif xbmc.getCondVisibility('system.platform.windows'):
@@ -209,6 +192,7 @@ def configure_sopcast(latest_version):
 			if tarfile.is_tarfile(SPSC_KIT):
 				path_libraries = os.path.join(pastaperfil,"sopcast")
 				download_tools().extract(SPSC_KIT,path_libraries)
+				print "++++++++++++++ downloading"
 				xbmc.sleep(500)
 				download_tools().remove(SPSC_KIT)
 			#set every single file from the bundle as executable
