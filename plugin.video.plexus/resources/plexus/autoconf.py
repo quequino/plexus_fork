@@ -28,10 +28,7 @@ from plexusutils.pluginxbmc import *
 from plexusutils.webutils import download_tools,get_page_source
 from plexusutils.utilities import *
 
-""" Platform dependent files downloaded during the addon configuration"""
-
-""" Platform dependent files downloaded during the addon configuration"""
-trunkfolder = "https://plexus.svn.codeplex.com/svn/trunk"
+trunkfolder = "https://github.com/tvaddonsag/plexus-dependencies/raw/master"
 version_control = trunkfolder + "/Control/versions.info"
 
 #Linux Arm
@@ -64,6 +61,7 @@ osx_x64_acestream = trunkfolder + "/Modules/MacOsx/AceStreamWineOSX.zip"
 acestream_windows = trunkfolder + "/Modules/Windows/acewindows-aceengine3.0.4.tar.gz"
 srvany_executable = trunkfolder + "/Modules/Windows/srvany.tar.gz"
 srvany_permissions = trunkfolder + "/Modules/Windows/sopcastp2p-permissions.txt"
+
 
 def check_for_updates():
 	try:
@@ -520,7 +518,6 @@ def configure_acestream(latest_version):
 			else:
 				print("64 bit Linux Disto Acestream Configuration")
 				ACE_KIT = os.path.join(addonpath,acestream_linux_x64_generic.split("/")[-1])
-				print "AAAAAAAAAAAAAAAAAAAAAAACEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEKIIIIIIIIIIIIIIIIIIIT"
 				download_tools().Downloader(acestream_linux_x64_generic,ACE_KIT,translate(30110),translate(30000))
 				if tarfile.is_tarfile(ACE_KIT):
 					download_tools().extract(ACE_KIT,pastaperfil)

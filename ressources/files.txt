@@ -1,3 +1,5 @@
+trunkfolder='https://github.com/bazingashami/plexus_fork/raw/master/ressources/'
+version_control=trunkfolder + "/versions.info"
 sopcast_linux_generico =  trunkfolder + "/sopcast_linux.tar.gz"
 openelecx86_64_sopcast = trunkfolder + "/sopcast_openelec64.tar.gz"
 openeelcx86_64_acestream = trunkfolder + "/acestream_openelec64_3051.tar.gz"
