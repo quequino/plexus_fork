@@ -31,39 +31,29 @@ from plexusutils.utilities import *
 """ Platform dependent files downloaded during the addon configuration"""
 
 """ Platform dependent files downloaded during the addon configuration"""
-trunkfolder = "https://plexus.svn.codeplex.com/svn/trunk"
-version_control = trunkfolder + "/Control/versions.info"
 
-#Linux Arm
-sopcast_raspberry = trunkfolder + "/Modules/Linux/arm/rpi2/sopcast-raspberry.tar.gz"
-acestream_rpi2 = trunkfolder + "/Modules/Linux/arm/rpi2/acestream-rpi2.tar.gz"
-
-#Linux i386 and x86_64 (including openelec)
-sopcast_linux_generico =  trunkfolder + "/Modules/Linux/Sopcastx86_64i386/sopcast_linux.tar.gz"
-openelecx86_64_sopcast = trunkfolder + "/Modules/Linux/x86_64/Openelec/sopcast_openelec64.tar.gz"
-openeelcx86_64_acestream = trunkfolder + "/Modules/Linux/x86_64/Openelec/acestream_openelec64_3051.tar.gz"
-openelecxi386_sopcast = trunkfolder + "/Modules/Linux/i386/openelec/sopcast_openeleci386.tar.gz"
-openeelcxi386_acestream = trunkfolder + "/Modules/Linux/i386/openelec/acestream_openeleci386_303fix.tar.gz"
-#gen linux
-acestream_linux_x64_generic = trunkfolder + "/Modules/Linux/x86_64/acestream-linux-x86_64_3051.tar.gz"
-acestream_linux_i386_generic = trunkfolder + "/Modules/Linux/i386/acestream-linux-i386_303.tar.gz"
-#Android
-sopcast_apk = trunkfolder + "/Modules/Android/SopCast.apk.tar.gz"
-acestreamengine_apk_arm = trunkfolder + "/Modules/Android/AceStream-3.0.6-2in1.apk.tar.gz"
-acestreamengine_apk_x86 = trunkfolder + "/Modules/Android/AceStream-3.0.6-2in1.apk.tar.gz"
-android_aceengine_arm = trunkfolder + "/Modules/Android/org.acestream.engine-arm-3.0.6.tar.gz"
-android_aceengine_x86 = trunkfolder + "/Modules/Android/org.acestream.engine_x86.tar.gz"
-android_aceplayer_arm = trunkfolder + "/Modules/Android/AcePlayer-3.0.6-2in1.apk.tar.gz"
-android_aceplayer_x86 = trunkfolder + "/Modules/Android/AcePlayer-3.0.6-2in1.apk.tar.gz"
-#Mac OSX #TODO
-osx_i386_sopcast = trunkfolder + "/Modules/MacOsx/i386/sopcast_osxi386.tar.gz"
-osx_i386_acestream = trunkfolder + "/Modules/MacOsx/AceStreamWineOSX.zip"
-osx_x64_sopcast = trunkfolder + "/Modules/MacOsx/x86_64/sopcast_osx64.tar.gz"
-osx_x64_acestream = trunkfolder + "/Modules/MacOsx/AceStreamWineOSX.zip"
-#Windows Files
-acestream_windows = trunkfolder + "/Modules/Windows/acewindows-aceengine3.0.4.tar.gz"
-srvany_executable = trunkfolder + "/Modules/Windows/srvany.tar.gz"
-srvany_permissions = trunkfolder + "/Modules/Windows/sopcastp2p-permissions.txt"
+trunkfolder="https://github.com/bazingashami/plexus_fork/raw/master/ressources/"
+version_control=trunkfolder + "/versions.info"
+sopcast_linux_generico =  trunkfolder + "/sopcast_linux.tar.gz"
+openelecx86_64_sopcast = trunkfolder + "/sopcast_openelec64.tar.gz"
+openeelcx86_64_acestream = trunkfolder + "/acestream_openelec64_3051.tar.gz"
+openelecxi386_sopcast = trunkfolder + "/sopcast_openeleci386.tar.gz"
+openeelcxi386_acestream = trunkfolder + "/acestream_openeleci386_303fix.tar.gz"
+acestream_linux_i386_generic = trunkfolder + "/acestream-linux-i386_303.tar.gz"
+sopcast_apk = trunkfolder + "/SopCast.apk.tar.gz"
+acestreamengine_apk_arm = trunkfolder + "/AceStream-3.0.6-2in1.apk.tar.gz"
+acestreamengine_apk_x86 = trunkfolder + "/AceStream-3.0.6-2in1.apk.tar.gz"
+android_aceengine_arm = trunkfolder + "/org.acestream.engine-arm-3.0.6.tar.gz"
+android_aceengine_x86 = trunkfolder + "/org.acestream.engine_x86.tar.gz"
+android_aceplayer_arm = trunkfolder + "/AcePlayer-3.0.6-2in1.apk.tar.gz"
+android_aceplayer_x86 = trunkfolder + "/AcePlayer-3.0.6-2in1.apk.tar.gz"
+osx_i386_sopcast = trunkfolder + "/sopcast_osxi386.tar.gz"
+osx_i386_acestream = trunkfolder + "/AceStreamWineOSX.zip"
+osx_x64_sopcast = trunkfolder + "/sopcast_osx64.tar.gz"
+osx_x64_acestream = trunkfolder + "/AceStreamWineOSX.zip"
+acestream_windows = trunkfolder + "/acewindows-aceengine3.0.4.tar.gz"
+srvany_executable = trunkfolder + "/srvany.tar.gz"
+srvany_permissions = trunkfolder + "/sopcastp2p-permissions.txt"
 
 def check_for_updates():
 	try:
