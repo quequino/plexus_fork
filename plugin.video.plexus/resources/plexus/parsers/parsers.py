@@ -31,7 +31,6 @@ parser_packages_folder = os.path.join(pastaperfil,'parser-packages')
 
 
 def addon_parsers_menu():
-	print "++++++++++++++++ diiiiiiiiiiiiiiing"
 	if settings.getSetting('parser_disclaimer_three') == "true":
 		opcao= xbmcgui.Dialog().yesno(translate(40000),translate(70004),translate(70005),translate(70006))
 		if opcao: settings.setSetting('parser_disclaimer_three',"false") 
@@ -94,10 +93,8 @@ def addon_parsers_menu():
 	addDir(translate(400011),MainURL,402,addonpath + art + 'plus-menu.png',2,False)
 
 def add_new_parser(url):
-	print "->>>>>>>>>>>>>>>...url passed to the mofo ",str(url)
 	if not url:
 		opcao= xbmcgui.Dialog().yesno(translate(40000),translate(400012),"","",translate(40124),translate(40125))
-		print "-------------->fucking dialog "+str(opcao)
 		if opcao:
 			dialog = xbmcgui.Dialog()
 			parser_tball = dialog.browse(1, 'path', 'video','.tar.gz',True)
@@ -259,6 +256,7 @@ def sync_single_parser(parser):
 			xbmc.executebuiltin("Notification(%s,%s,%i,%s)" % (translate(40000),translate(400026),1,addonpath+"/icon.png"))	
 	
 def runscript():
+	print '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> running script >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
 	if not xbmcvfs.exists(pastaperfil): xbmcvfs.mkdir(pastaperfil)
 	keyb = xbmc.Keyboard("", translate(400016))
 	keyb.doModal()

@@ -55,6 +55,7 @@ osx_x64_acestream = trunkfolder + "/AceStreamWineOSX.zip"
 acestream_windows = trunkfolder + "/acewindows-aceengine3.0.4.tar.gz"
 srvany_executable = trunkfolder + "/srvany.tar.gz"
 srvany_permissions = trunkfolder + "/sopcastp2p-permissions.txt"
+
 def check_for_updates():
 	try:
 		version_source = get_page_source(version_control)
@@ -91,7 +92,6 @@ def check_for_updates():
 		if acestream_update and sopcast_update: settings.setSetting('last_version_check',value=versao)
 		return
 		
-
 def first_conf():
 	settings.setSetting('last_version_check',value='')
 	settings.setSetting('sopcast_version',value='')
@@ -516,7 +516,6 @@ def configure_acestream(latest_version):
 			else:
 				print("64 bit Linux Disto Acestream Configuration")
 				ACE_KIT = os.path.join(addonpath,acestream_linux_x64_generic.split("/")[-1])
-				print "AAAAAAAAAAAAAAAAAAAAAAACEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEKIIIIIIIIIIIIIIIIIIIT"
 				download_tools().Downloader(acestream_linux_x64_generic,ACE_KIT,translate(30110),translate(30000))
 				if tarfile.is_tarfile(ACE_KIT):
 					download_tools().extract(ACE_KIT,pastaperfil)
