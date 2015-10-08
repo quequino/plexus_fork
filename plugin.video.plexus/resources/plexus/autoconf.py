@@ -40,7 +40,7 @@ sopcast_raspberry = trunkfolder + "/Modules/Linux/arm/rpi2/sopcast-raspberry.tar
 acestream_rpi2 = trunkfolder + "/Modules/Linux/arm/rpi2/acestream-rpi2.tar.gz"
 
 #Linux i386 and x86_64 (including openelec)
-sopcast_linux_generico =  trunkfolder + "/Modules/Linux/Sopcastx86_64i386/sopcast_linux.tar.gz"
+sopcast_linux_generic =  trunkfolder + "/Modules/Linux/Sopcastx86_64i386/sopcast_linux.tar.gz"
 openelecx86_64_sopcast = trunkfolder + "/Modules/Linux/x86_64/Openelec/sopcast_openelec64.tar.gz"
 openeelcx86_64_acestream = trunkfolder + "/Modules/Linux/x86_64/Openelec/acestream_openelec64_3051.tar.gz"
 openelecxi386_sopcast = trunkfolder + "/Modules/Linux/i386/openelec/sopcast_openeleci386.tar.gz"
@@ -196,15 +196,17 @@ def configure_sopcast(latest_version):
 			else: generic = True
 		if generic == True:
 			print "++++++++++++++++ generic sopcast install"
-			SPSC_KIT = os.path.join(addonpath,sopcast_linux_generico.split("/")[-1])
+			SPSC_KIT = os.path.join(addonpath,sopcast_linux_generic.split("/")[-1])
 			xbmc.log("download  crap path: "+SPSC_KIT)
-			download_tools().Downloader(sopcast_linux_generico,SPSC_KIT,translate(30076),translate(30000))
+			download_tools().Downloader(sopcast_linux_generic,SPSC_KIT,translate(30076),translate(30000))
 			if tarfile.is_tarfile(SPSC_KIT):
 				path_libraries = os.path.join(pastaperfil,"sopcast")
 				download_tools().extract(SPSC_KIT,path_libraries)
 				print "++++++++++++++ downloading"
 				xbmc.sleep(500)
 				download_tools().remove(SPSC_KIT)
+			else:
+				print "++++++++++++++ it isn't a tarfile fuuuuuck"
 			#set every single file from the bundle as executable
 			path_libraries = os.path.join(pastaperfil,"sopcast")
 			dirs, files = xbmcvfs.listdir(path_libraries)
@@ -334,7 +336,6 @@ def configure_sopcast(latest_version):
                                     proc = subprocess.Popen(cmd,stdout=subprocess.PIPE,shell=True)
                                     lines = []
                                     for line in proc.stdout:
-					print(line.rstrip())
                                         if line.rstrip() != "" and "(" in line.rstrip(): lines.append(line.rstrip())
                                         else: pass
                                     if len(lines) != 1: mensagemok(translate(30000),translate(30093))
