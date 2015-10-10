@@ -32,7 +32,7 @@ from plexusutils.utilities import *
 
 """ Platform dependent files downloaded during the addon configuration"""
 
-trunkfolder="https://raw.githubusercontent.com/bazingashami/plexus_fork/master/resources"
+trunkfolder="https://github.com/quequino/plexus-dependencies/blob/master"
 version_control = trunkfolder + "/Control/versions.info"
 
 #Linux Arm
